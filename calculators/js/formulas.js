@@ -13,8 +13,8 @@ function calcFahrenheitToCelcius(fahrenheit) {
 }
 
 function calcCircumference(radius) {
-  // Takes radius value and returns circumference
-  var circumference = 2 * Math.PI * radius;
+  // Takes radius value and returns circumference to 6 decimal points
+  var circumference = (2 * Math.PI * radius).toFixed(6);
   return circumference;
 }
 
