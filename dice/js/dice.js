@@ -12,10 +12,6 @@ rollButton.addEventListener('click', rollDice);
 
 // Event Listeners
 // ------------------------------------------
-function randomNum(min, max) {
-  var num = (Math.random() * (max - min) + min).toFixed();
-  return num;
-}
 
 function rollDice() {
   var prefix = 'dice-';
@@ -24,6 +20,12 @@ function rollDice() {
   
   firstDie.className = prefix + random1;
   secondDie.className = prefix + random2;
+}
+
+// Utility function 
+function randomNum(min, max) {
+  var num = (Math.random() * (max - min) + min).toFixed();
+  return num;
 }
 
 /*
