@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Arrays</title>
+</head>
+<body>
+  <script>
+    
+    var days = ['Monday','Tuesday','Wednesday','Thursday','Friday'];
+    
+    days.push('Saturday');
+    
+    console.log("----------");
+    days.forEach(printDay);
+    function printDay(day,index,arr) {
+      console.log(day);
+    }
+    
+    console.log("----------");
+    for (var i = 0; i < days.length; i++) {
+      console.log(days[i]);
+    }
+    
+  </script>
+  
+
+</body>
+</html>
