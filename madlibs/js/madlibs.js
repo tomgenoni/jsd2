@@ -13,6 +13,7 @@ var generate = document.querySelector('.generate');
 var save     = document.querySelector('.save');
 var print    = document.querySelector('.print');
 var list     = document.querySelector('.list');
+var clear     = document.querySelector('.clear');
 
 
 // Events
@@ -20,6 +21,7 @@ var list     = document.querySelector('.list');
 generate.addEventListener('click', generateStartup);
 save.addEventListener('click', saveFavorite);
 print.addEventListener('click', printFavorites);
+clear.addEventListener('click', clearFavorites);
 
 
 // Event Listeners
@@ -46,11 +48,15 @@ function randomInArray(arr) {
 	return item;
 }
 
+function clearFavorites() {
+  favorites = [];
+	list.innerHTML = '';
+}
 
 function saveFavorite() {
 
 	// TODO: add the new idea to the array
-	if ( !(favorites.includes(startupIdea)) ) {		
+	if ( !favorites.includes(startupIdea) ) {
 		favorites.push(startupIdea);
 		console.log(favorites);
 	}
@@ -69,7 +75,7 @@ function printFavorites() {
 	// - each favorite should have an html br element between it (EG: "<br>")
 	
 	favorites.forEach(function(value, item){
-		favoritesText += value + "<br>";
+		favoritesText += '<div>' + value + '</div>';
 	});
 		
 	// update the list element with the new concatenated string
