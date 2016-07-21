@@ -12,6 +12,11 @@ function calcFahrenheitToCelcius(fahrenheit) {
   return celcius;
 }
 
+function calcCelciusToFarenheit(celcius) {
+  var fahrenheit = (celcius * 9 / 5 + 32).toFixed(2);
+  return fahrenheit;
+}
+
 function calcCircumference(radius) {
   // Takes radius value and returns circumference to 6 decimal points
   var circumference = (2 * Math.PI * radius).toFixed(6);
