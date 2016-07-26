@@ -2,17 +2,115 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Work</title>
+  <title>J2D2</title>
+  
+  <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic|Lato:400,700" rel="stylesheet" type="text/css">
+
+  <style>
+  
+    html {
+      height: 100%;
+    }
+  
+    body {
+      background: #49677c;
+      font-family: Lato, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      padding: 40px 20px 20px;
+      padding-left: calc(50% + 20px);
+      line-height: 1.4;
+      color: #fff;
+    }
+    
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      
+    }
+    
+    h1 {
+      font-weight: 400;
+      margin: 0 0 30px;
+      padding: 0;
+      line-height: 1;
+      opacity: .7;
+    }
+    
+    .tag {
+      font-size: 14px;
+      text-transform: uppercase;
+      opacity: .3;
+      margin-bottom: 5px;
+      letter-spacing: 1px;
+    }
+    
+    a {
+      color: #fff;
+      text-decoration: none;
+      transition: opacity 200ms;
+    }
+    
+    a:hover {
+      opacity: .7;
+    }
+    
+    .img {
+      background: center center url(https://c4.staticflickr.com/2/1442/23729582779_1202a01daf_k.jpg) no-repeat;
+      background-size: cover;
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 50%;
+    }
+    
+    .stripe {
+      position: fixed;
+      background: #49677c;
+      top: 0;
+      left: 50%;
+      width: 50%;
+      bottom: -5%;
+      transform: rotate(3deg);
+      transform-origin: 0 0;
+    }
+    
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .list {
+      margin-bottom: 30px;
+    }
+  
+  </style>
+  
+  
 </head>
 <body>
   
-  <h1>Tom Genoni</h1>
+  <div class="img"></div>
+  <div class="stripe"></div>
   
-  <ul>
-    <li><a href="calculators/formulas.html">Calculations</a></li>
-    <li><a href="dice/dice.html">Dice Roll</a></li>
-    <li><a href="madlibs/madlibs.html">Madlibs</a></li>
-  </ul>
+  <div class="content">
+    <div class="tag">jsd2</div>
+    <h1>Tom Genoni</h1>
+    <div class="tag">Work</div>
+    <ul class="list">
+      <li><a href="calculators/formulas.html">Calculations</a></li>
+      <li><a href="dice/dice.html">Dice Roll</a></li>
+      <li><a href="madlibs/madlibs.html">Madlibs</a></li>
+    </ul>
+    <div class="tag">About</div>
+    <ul class="list">
+      <li><a href="http://atomeye.com">Portfolio</a></li>
+      <li><a href="https://www.flickr.com/photos/tommygenoni/albums">Flickr</a></li>
+      <li><a href="https://github.com/tomgenoni">Github</a></li>
+    </ul>
+  </div>
+  
   
 </body>
 </html>
