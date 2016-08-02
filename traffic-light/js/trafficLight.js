@@ -4,6 +4,10 @@
 var cautionInterval;
 var cycleTimer;
 
+var lightActions  = ['stop','slow','go'];
+var lightIndex    = 0;
+var cycleNum      = 0;
+var cycleNumLimit = 10;
 
 // Structure
 // ----------------------------------------------
@@ -14,7 +18,7 @@ var stopBtn      = document.querySelector('.stop-button');
 var slowBtn      = document.querySelector('.slow-button');
 var goBtn        = document.querySelector('.go-button');
 var cautionBtn   = document.querySelector('.caution-button');
-var runBtn       = document.querySelector('.run-button');
+var cycleBtn       = document.querySelector('.cycle-button');
 
 // Events
 // ----------------------------------------------
@@ -23,7 +27,7 @@ stopBtn.addEventListener('click', lightStop);
 slowBtn.addEventListener('click', lightSlow);
 goBtn.addEventListener('click', lightGo);
 cautionBtn.addEventListener('click', lightCaution);
-runBtn.addEventListener('click', cycleInit);
+cycleBtn.addEventListener('click', cycleInit);
 
 
 // Event handlers
@@ -39,12 +43,7 @@ function changeLight(e, action) {
   }
   clearLights();
   clearInterval(cautionInterval);
-
-  if (action === 'caution') {
-    cautionInterval = setInterval(cautionLight, 1000)
-  } else {
-    trafficLight.classList.add(action);
-  }
+  trafficLight.classList.add(action);
 }
 
 function lightStop(e) {
@@ -60,34 +59,37 @@ function lightGo(e) {
 }
 
 function lightCaution(e) {
-  changeLight(e, 'caution');
+  e.preventDefault();
+  clearLights();
+  cautionInterval = setInterval(cautionLight, 500);
 }
 
 function cautionLight() {
+  clearInterval(cautionInterval);
   trafficLight.classList.toggle('slow');
 }
 
+// Cycle variables and functions
 
 function cycleInit() {
-  var actions = ['stop','slow','go'];
-  var index = 0;
-  var pass = 0;
-  
-  cycleTimer = setInterval(function(){
-    changeLight(null, actions[index])
-    index++;
-    pass++;
-    if (index == actions.length) {
-      index = 0;
-    }
-    console.log(pass);
-    if (pass === 13) {
-      clearInterval(cycleTimer);
-      clearLights();
-    }
-  }, 1000);
+  lightIndex = 0;
+  cycleNum   = 0;
+  clearInterval(cycleTimer);
+  cycleTimer = setInterval(cycle, 300);
 }
 
 function cycle() {
+  changeLight(null, lightActions[lightIndex]);
   
+  lightIndex++;
+  cycleNum++; 
+  if (lightIndex === lightActions.length) {
+    lightIndex = 0;
+  }
+  if (cycleNum === cycleNumLimit) {
+    lightIndex = 0;
+    cycleNum   = 0;
+    clearInterval(cycleTimer);
+    clearLights();
+  }
 }
