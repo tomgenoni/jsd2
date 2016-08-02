@@ -1,12 +1,6 @@
 // Setup
 // ----------------------------------------------
 
-var cautionInterval;
-var cycleTimer;
-var lightActions  = ['stop','slow','go'];
-var lightIndex    = 0;
-var cycleNum      = 0;
-var cycleNumLimit = 10;
 
 // Structure
 // ----------------------------------------------
@@ -19,12 +13,21 @@ var goBtn        = document.querySelector('.go-button');
 var cautionBtn   = document.querySelector('.caution-button');
 var cycleBtn     = document.querySelector('.cycle-button');
 
+// Cycle variables
+var cautionInterval;
+var cycleTimer;
+var actionsArr      = ['stop','slow','go'];
+var actionIndex     = 0;
+var cycleIndex      = 0;
+var cycleLoops      = 9;
+
 // Events
 // ----------------------------------------------
 
-stopBtn.addEventListener('click', lightStop);
-slowBtn.addEventListener('click', lightSlow);
-goBtn.addEventListener('click', lightGo);
+stopBtn.addEventListener('click', changeLight);
+slowBtn.addEventListener('click', changeLight);
+goBtn.addEventListener('click', changeLight);
+
 cautionBtn.addEventListener('click', lightCaution);
 cycleBtn.addEventListener('click', cycleInit);
 
@@ -33,77 +36,52 @@ cycleBtn.addEventListener('click', cycleInit);
 // ----------------------------------------------
 
 function clearLights() {
+  clearInterval(cautionInterval);
+  clearInterval(cycleTimer);
   trafficLight.className = "";
 }
 
-function changeLight(e, action) {
-  if (e) {
-    e.preventDefault();
-  }
-
-  // Clear the caution light if it's on.
-  clearInterval(cautionInterval);
-
+// Change the light by grabbing the data-attr
+function changeLight(action) {
   clearLights();
-  trafficLight.classList.add(action);
-}
-
-function lightStop(e) {
-  clearInterval(cycleTimer);
-  changeLight(e, 'stop');
-}
-
-function lightSlow(e) {
-  clearInterval(cycleTimer);
-  changeLight(e, 'slow');
-}
-
-function lightGo(e) {
-  clearInterval(cycleTimer);
-  changeLight(e, 'go');
+  var action = this.dataset.action;
+  trafficLight.classList = action;
 }
 
 // Caution light
-
-function lightCaution(e) {
-  e.preventDefault();
-  clearInterval(cycleTimer);
+function lightCaution() {
   clearLights();
   cautionInterval = setInterval(function(){
     trafficLight.classList.toggle('slow');
   }, 500);
 }
 
-// Cycle variables and functions
-
-function resetCycle() {
-  lightIndex = 0;
-  cycleNum   = 0;
-  clearInterval(cycleTimer);
-  clearLights();
-}
-
+// Cycle functions
 function cycleInit() {
   resetCycle();
   cycleTimer = setInterval(cycle, 300);
 }
 
+function resetCycle() {
+  actionIndex = 0;
+  cycleIndex  = 0;
+  clearLights();
+}
+
 function cycle() {
-  // Pulling from the actions array
-  changeLight(null, lightActions[lightIndex]);
+  var action = actionsArr[actionIndex];
+  trafficLight.classList = action;
+  actionIndex++;
   
   // Increment the array index.
-  lightIndex++;
-  
-  if (lightIndex === lightActions.length) {
-    lightIndex = 0;
+  if (actionIndex === actionsArr.length) {
+    actionIndex = 0;
   }
   
   // If we're done with the full cycle
   // reset everything
-  cycleNum++; 
-  
-  if (cycleNum === cycleNumLimit) {
+  if (cycleIndex === cycleLoops)      {
     resetCycle();
   }
+  cycleIndex++; 
 }

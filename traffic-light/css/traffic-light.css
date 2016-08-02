@@ -31,6 +31,7 @@ button {
 	background: #A6A6A6;
 	font-size: 14px;
 	cursor: pointer;
+	white-space: nowrap;
 }
 .controls button:hover {
 	background: #B0B0B0;
