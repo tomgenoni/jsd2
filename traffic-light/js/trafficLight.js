@@ -1,10 +1,6 @@
 // Setup
 // ----------------------------------------------
 
-
-// Structure
-// ----------------------------------------------
-
 var trafficLight = document.querySelector('#traffic-light');
 
 var stopBtn      = document.querySelector('.stop-button');
@@ -45,7 +41,7 @@ function clearLights() {
 function changeLight(action) {
   clearLights();
   var action = this.dataset.action;
-  trafficLight.classList = action;
+  trafficLight.className = action;
 }
 
 // Caution light
@@ -70,7 +66,7 @@ function resetCycle() {
 
 function cycle() {
   var action = actionsArr[actionIndex];
-  trafficLight.classList = action;
+  trafficLight.className = action;
   actionIndex++;
   
   // Increment the array index.
