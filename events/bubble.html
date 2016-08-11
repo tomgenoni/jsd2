@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  
+  <style>
+    li {
+      background: #eee;
+    }
+  
+  </style>
+  
+</head>
+<body>
+  
+  <ul>
+    <li>
+      <h2>Headline</h2>
+      <p>Foobar</p>
+    </li>
+  </ul>
+  
+<script>
+  
+  var li = document.querySelector('li');
+  li.addEventListener('click', foo);
+  
+  function foo(e) {
+    console.log(e.target.tagName);
+  }
+
+  
+</script>
+</body>
+</html>
