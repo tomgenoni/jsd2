@@ -17,29 +17,26 @@
 	<input class="zip" placeholder="Zip code" value="94117">
 </form>
 
-<ul class="results">
+<div class="total"></div>
 
-<!--
-	<li>
-		<img src="http://www.thaifoodandtravel.com/images/pad-thai-04.jpg">
-		<h2>Name</h2>
-		<p>Address</p>
-	</li>
--->
-
-</ul>
+<ul class="results"></ul>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
 
-<script id="restaurants-template" type="text/x-handlebars-template">
-	{{#each}}
+<script id="restaurant-template" type="text/x-handlebars-template">
+	{{#each this}}
 	<li>
 		<img src="{{image_url}}">
 		<h2>{{name}}</h2>
 		<p>{{address}}</p>
+		<p><a href="{{reserve_url}}">Reserve</a></p>
 	</li>
 	{{/each}}
+</script>
+
+<script id="header-template" type="text/x-handlebars-template">
+	Total Results: {{total_entries}} {{restaurants.0.postal_code}}
 </script>
 
 <script src="js/content.js"></script>

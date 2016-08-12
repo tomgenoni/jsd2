@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Baseball Schedule</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arvo">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/baseball.css">
+	<link rel="stylesheet" href="css/instructions.css">
+</head>
+<body>
+
+
+<main>
+	<header>
+		<h1>Baseball Lab</h1>
+	</header>
+
+	<section>
+		<h2 class="date"></h2>
+		<ul class="games"></ul>
+	</section>
+</main>
+
+
+<script id="date-tpl" type="text/x-handlebars-template">
+	{{dateDisplay}}
+</script>
+
+<script id="games-tpl" type="text/x-handlebars-template">
+	{{#each games}}
+		<li class="game">
+			<p class="time">{{time}}</p>
+			<div class="team home">
+				<div>
+					<img src="{{home.logo}}">
+					<p class="name">{{home.name}}</p>
+				</div>
+				<div class="record">
+					({{home.wins}}-{{home.losses}})
+				</div>
+			</div>
+			<div class="team away">
+				<div>
+					<img src="{{away.logo}}">
+					<p class="name">{{away.name}}</p>
+				</div>
+				<div class="record">
+					({{away.wins}}-{{away.losses}})
+				</div>
+			</div>
+		</li>
+	{{/each}}
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
+<script src="js/mockdata.js"></script>
+<script src="js/baseball.js"></script>
+</body>
+</html>

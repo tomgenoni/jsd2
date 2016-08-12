@@ -1,9 +1,12 @@
 // Elements
 // ------------------------------------
-var form = document.querySelector("form");
-var zip = document.querySelector("form .zip");
-var results = document.querySelector(".results");
+var form               = document.querySelector("form");
+var zip                = document.querySelector("form .zip");
+var results            = document.querySelector(".results");
+var totalHeader        = document.querySelector(".total");
 
+var restaurantTemplate = document.querySelector("#restaurant-template");
+var headerTemplate = document.querySelector("#header-template");
 
 // Event
 // ------------------------------------
@@ -12,39 +15,30 @@ form.addEventListener('submit', getRestaurants);
 
 // Event Handler
 // ------------------------------------
-function getRestaurants(event) {
-	event.preventDefault();
-
+function getRestaurants(e) {
+	e.preventDefault();
 	var search = zip.value;
-
 	var url = "http://opentable.herokuapp.com/api/restaurants?zip=" + search;
-
 	$.getJSON(url, updateRestaurants);
 }
 
 // Update page
 // ------------------------------------
 function updateRestaurants(json) {
-
+	
 	// clears out the old results
 	results.innerHTML = '';
 
-	// add new result for each item in array
-	//json.restaurants.forEach(createRestaurant);
+	// create var so Handlebars can compile the template
+	var template = Handlebars.compile(restaurantTemplate.textContent);
+	// create the HTML by sending the json to the template
+	var html = template(json.restaurants);
+	// Dump the string into DOM element
+	results.innerHTML = html;
 	
-	var source = document.querySelector('#restaurants-template');
-	console.log(source);
+	// Update the header
+	var template = Handlebars.compile(headerTemplate.textContent);
+	var html = template(json);
+	totalHeader.innerHTML = html;
 	
-}
-	
-function createRestaurant(restaurant) {
-	var li = document.createElement("li");
-
-	var template =
-	'<img src="' + restaurant.image_url + '">' +
-	'<h2>' + restaurant.name + '</h2>'  +
-	'<p>' + restaurant.address + '</p>';
-	
-	li.innerHTML = template;
-	results.appendChild(li);
 }

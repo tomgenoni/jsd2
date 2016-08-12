@@ -12,7 +12,7 @@ input {
 	font-size: 20px;
 }
 .results li {
-	padding: 15px;
+	padding: 15px 0;
 	border-bottom: 1px solid grey;
 	clear: left;
 }
@@ -20,4 +20,9 @@ input {
 	float: left;
 	height: 60px;
 	margin-right: 20px;
+}
+
+.total {
+	margin: 10px 0;
+	font-size: 14px;
 }
