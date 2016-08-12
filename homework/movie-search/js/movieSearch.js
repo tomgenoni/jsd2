@@ -28,7 +28,7 @@ function getMovies(event) {
   event.preventDefault();
   
   var searchTerm = searchInput.value;
-  var apiRoot = 'http://www.omdbapi.com/?'
+  var apiRoot = 'https://www.omdbapi.com/?'
   var url = apiRoot + 's=' + searchTerm;
   
   $.getJSON(url, moviesResult);
@@ -37,7 +37,7 @@ function getMovies(event) {
 function getMovie(e) {
   var li = e.target.closest('li');
   var imdbID = li.id;
-  var apiRoot = 'http://www.omdbapi.com/?'
+  var apiRoot = 'https://www.omdbapi.com/?'
   var url = apiRoot + 'i=' + imdbID;
   
   $.getJSON(url, movieResult);
