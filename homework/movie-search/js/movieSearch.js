@@ -37,9 +37,9 @@ function getMovies(event) {
 function getMovie(e) {
   var li = e.target.closest('li');
   var imdbID = li.id;
-
   var apiRoot = 'http://www.omdbapi.com/?'
   var url = apiRoot + 'i=' + imdbID;
+  
   $.getJSON(url, movieResult);
 }
 
@@ -51,21 +51,19 @@ function moviesResult(data) {
   var template = Handlebars.compile(tplMovies.textContent);
   var html = template(data);
   details.innerHTML = '';
-  results.innerHTML = '';
   results.innerHTML = html;
 }
 
 function movieResult(data) {
   var template = Handlebars.compile(tplMovie.textContent);
   var html = template(data);
-  details.innerHTML = '';
   details.innerHTML = html;
 }
 
 Handlebars.registerHelper("checkPoster", function(Poster) {
+  var url = Poster;
   if (Poster === 'N/A') {
-    return('i/empty.png');
-  } else {
-    return(Poster)
+    url = 'i/empty.png';
   }
+  return url;
 });
