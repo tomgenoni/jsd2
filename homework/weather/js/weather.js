@@ -13,7 +13,7 @@ function fetchWeather(e) {
   body.className = '';
   
   var city = formInput.value;
-  var url = 'http://api.wunderground.com/api/3478c11df41cd053/forecast/q/CA/' + city + '.json';
+  var url = 'https://api.wunderground.com/api/3478c11df41cd053/forecast/q/CA/' + city + '.json';
   $.getJSON(url, showWeather);
   
   showBackground(city);
