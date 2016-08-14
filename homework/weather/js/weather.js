@@ -1,12 +1,19 @@
-var form       = document.querySelector('#zip');
-var formInput  = document.querySelector('#zip__input');
-var body       = document.querySelector('body');
-var results    = document.querySelector('.data');
+function qs(i){
+  return document.querySelector(i);
+}
 
-var hdbWeather = document.querySelector('#hlb-weather');
+var form       = qs('#zip');
+var formInput  = qs('#zip__input');
+var body       = qs('body');
+var results    = qs('.data');
 
+var hdbWeather = qs('#hlb-weather');
+
+//-------------------------------------------
 
 form.addEventListener('submit', fetchWeather);
+
+//-------------------------------------------
 
 function fetchWeather(e) {
   e.preventDefault();
