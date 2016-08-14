@@ -41,7 +41,7 @@ body {
   text-transform: uppercase;
   opacity: .5;
   letter-spacing: 1px;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 
 #zip__input {
@@ -111,11 +111,14 @@ body {
   margin-bottom: 20px;
 }
 
-.data__day,
-.data__night {
-  padding: 0 5px;
+.data__temps {
+  display: flex;
 }
 
-.data__night {
-  opacity: .4;
+.data__temps-hi {
+  flex: 1;
+}
+.data__temps-lo {
+  flex: 1;
+  opacity: .5;
 }
