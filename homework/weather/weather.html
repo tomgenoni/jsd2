@@ -24,6 +24,7 @@
       <div class="tag">City</div>
     </form>
     
+    <div id="no-results">Sorry, no cities match your search query.</div>
     <ul class="data"></ul>
         
     
@@ -35,7 +36,6 @@
       <li class="data__item">
         <div class="tag--small">{{date.weekday}}</div>
         <div class="data__icon">
-          <div></div>
           <i class="wi local-{{icon}}"></i>
         </div>
         <ul class="data__temps">
@@ -50,7 +50,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
   <script src="//code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
   
-  <script src="js/data.js"></script>
+  <!-- <script src="js/data.js"></script> -->
   <script src="js/weather.js"></script>
 </body>
 </html>

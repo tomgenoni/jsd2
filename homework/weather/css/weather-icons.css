@@ -70,7 +70,7 @@
   transform: scale(1, -1);
 }
 .wi-day-sunny:before,
-.lcoal-clear:before  {
+.local-clear:before  {
   content: "\f00d";
 }
 .wi-day-cloudy:before,
@@ -1836,7 +1836,8 @@
 .wi-wu-sunny:before {
   content: "\f00d";
 }
-.wi-wu-tstorms:before {
+.wi-wu-tstorms:before,
+.local-tstorms:before {
   content: "\f01e";
 }
 .wi-wu-unknown:before {

@@ -49,14 +49,14 @@ body {
   outline: none;
   color: #fff;
   font-size: 60px;
-  padding: 5px 20px;
+  padding: 0 20px;
   text-align: center;
   transition: transform 200ms;
   background: none;
 }
 
 #zip .tag {
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .active #zip__input {
@@ -64,21 +64,30 @@ body {
   background-color: transparent;
 }
 
-.active #zip .tag {
-  transition: opacity 200ms;
+#no-results {
+  font-size: 24px;
   opacity: 0;
+  transform: translateY(40px);
+}
+
+.error #no-results {
+  opacity: 1;
+  transform: translateY(20px);
+  transition: opacity 200ms, transform 200ms;
 }
 
 .data {
   display: flex;
   margin-top: 25px;
   justify-content: center;
+  min-height: 180px;
 }
 
 .data__item {
   padding: 10px 20px;
   opacity: 0;
   transform: translateY(40px);
+  width: 150px;
 }
 
 .active .data__item {
@@ -113,12 +122,13 @@ body {
 
 .data__temps {
   display: flex;
+  justify-content: center;
 }
 
 .data__temps-hi {
-  flex: 1;
+  padding: 0 5px;
 }
 .data__temps-lo {
-  flex: 1;
+  padding: 0 5px;
   opacity: .5;
 }
