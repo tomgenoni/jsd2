@@ -18,6 +18,8 @@ body {
   font-size: 18px;
   color: #fff;
   -webkit-font-smoothing: antialiased;
+  background-size: cover;
+  background-position: center center;
 }
 
 .wrap {
@@ -26,6 +28,21 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+#fader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #212e3e;
+  opacity: 1;
+}
+
+.active #fader {
+  transition: opacity 2000ms 1000ms;
+  opacity: .8;
 }
 
 .tag {
