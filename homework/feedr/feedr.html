@@ -18,7 +18,7 @@
       <nav>
         <ul>
           <li><a href="#">News Source <span id="source-name"></span></a>
-            <ul id="sources-list"><!--handlbars--></ul>
+            <ul id="sources-list"><!--handlebars--></ul>
           </li>
         </ul>
         <section id="search">
@@ -31,9 +31,14 @@
   </header>
   <div id="popUp" class="loader hidden">
     <a href="#" class="closePopUp">X</a>
-    <div class="container"><!--handlbars--> </div>
+    <div class="container"><!--handlebars--> </div>
   </div>
-  <section id="main" class="container"><!--handlbars--></section>
+  <section id="main" class="container"><!--handlebars--></section>
+
+  <div id="feed-fail">
+    Sorry, but the feed is currently unavailable.
+  </div>
+
 
   <script id="hlb-menu" type="text/x-handlebars-template">
     {{#each this}}
@@ -49,7 +54,11 @@
       </section>
       <section class="articleContent">
           <a href="#"><h3>{{title}}</h3></a>
-          <h6>{{author}}</h6>
+          <h6>{{author}}
+            {{#if publishedAtClean }}
+            <span>on {{publishedAtClean}}</span>
+            {{/if}}
+          </h6>
       </section>
       <div class="clearfix"></div>
     </article>
