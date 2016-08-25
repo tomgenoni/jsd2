@@ -239,6 +239,12 @@ nav ul ul li:hover {
   color: #666;
 }
 
+.article .articleContent h6 span {
+  color: #999;
+}
+
+
+
 .article .impressions {
   width: 15%;
   float: right;
@@ -246,4 +252,15 @@ nav ul ul li:hover {
   margin-top: 15px;
   text-align: right;
   color: #097FB2;
+}
+
+
+#feed-fail {
+  display: none;
+  text-align: center;
+  padding-top: 50px;
+}
+
+#feed-fail.is-active {
+  display: block;
 }
