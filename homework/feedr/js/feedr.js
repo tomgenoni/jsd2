@@ -102,6 +102,7 @@ function cleanDate(str) {
   stamp.time   = stamp[1].split(':');
   var period   = 'am';
   
+  // Fix date
   var monthNum = parseInt(stamp.date[1], 10) - 1;
   var month    = months[monthNum];
   var day      = stamp.date[2];
@@ -109,10 +110,11 @@ function cleanDate(str) {
    
   var dayClean = month + ' ' + day + ', ' + year;
   
-  var hour = parseInt(stamp.time[0], 10);
-  var minute = stamp.time[1];
+  // Fix time
+  var hour     = parseInt(stamp.time[0], 10);
+  var minute   = stamp.time[1];
 
-  if (hour > 13) {
+  if (hour > 12) {
     hour = hour - 12;
     period = 'pm';
   }
